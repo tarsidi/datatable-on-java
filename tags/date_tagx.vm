@@ -1,0 +1,35 @@
+#set( $_ = "$" )
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:s="http://www.springframework.org/tags" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:joda="http://www.joda.org/joda/time/tags" version="2.0">
+	<jsp:output omit-xml-declaration="yes" />
+
+	<jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true" description="id" />
+	<jsp:directive.attribute name="name" type="java.lang.String" required="false" rtexprvalue="true" description="path attribute" />
+	<jsp:directive.attribute name="cssClass" type="java.lang.String" required="false" rtexprvalue="true" description="css class" />
+	<jsp:directive.attribute name="readOnly" type="java.lang.Boolean" required="false" rtexprvalue="true" description="readOnly" />
+	
+	<!-- default values -->
+	
+	<c:if test="${_}{empty cssClass}">
+		<c:set var="cssClass" value="form-control" />
+	</c:if>
+	
+	<c:if test="${_}{empty readOnly}">
+		<c:set var="readOnly" value="false" />
+	</c:if>
+	
+	<!-- content -->
+	<c:choose>
+		<c:when test="${_}{empty name}">
+			<input id="${_}{id}" class="${_}{cssClass}" maxLength="50" style="width: 200px;"/>
+  		</c:when>
+		<c:otherwise>
+			<form:input id="${_}{id}" path="${_}{name}" class="${_}{cssClass}"/>
+  		</c:otherwise>
+	</c:choose>
+	<script type="text/javascript">
+		${_}('#${_}{id}').datepicker({
+			language: '${_}{fn:substring(pageContext.response.locale, 0, 2)}'
+		});
+	</script>
+		
+</jsp:root>
