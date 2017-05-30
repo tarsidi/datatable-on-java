@@ -188,8 +188,8 @@ jQuery(document).ready(function() {
 #else,
             { "data": "${keyFields[0].name}", 
             	"mRender" : function (data, type, oObj ) {
-            		return "&#x3C;a href=\&#x22;javascript:location.href=&#x27;/${ROOT_PATH}/${uncapitalizedEntityName}/form/"+data+"';\" class=\&#x22;btn btn-info\&#x22;&#x3E;Edit&#x3C;/a&#x3E; &#x26;nbsp;"+
-    					"&#x3C;a href=\&#x22;javascript:location.href=&#x27;/${ROOT_PATH}/${uncapitalizedEntityName}/delete/"+data+"';\" class=\&#x22;btn btn-info\&#x22;&#x3E;Delete&#x3C;/a&#x3E;"
+            		return "&#x3C;a href=\&#x22;javascript:location.href=&#x27;/${PROJECT_NAME}/${uncapitalizedEntityName}/form/"+data+"';\" class=\&#x22;btn btn-info\&#x22;&#x3E;Edit&#x3C;/a&#x3E; &#x26;nbsp;"+
+    					"&#x3C;a href=\&#x22;javascript:location.href=&#x27;/${PROJECT_NAME}/${uncapitalizedEntityName}/delete/"+data+"';\" class=\&#x22;btn btn-info\&#x22;&#x3E;Delete&#x3C;/a&#x3E;"
 
                 }
             }
